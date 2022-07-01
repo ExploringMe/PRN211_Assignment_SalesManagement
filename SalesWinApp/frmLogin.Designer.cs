@@ -42,7 +42,7 @@
             // 
             // pbLogin
             // 
-            this.pbLogin.Image = global::SalesWinApp.Properties.Resources.engq1salesstaffchocngtynhtmithnhlplngupto100020190620145357_16194213920321657467488;
+            this.pbLogin.Image = global::SalesWinApp.Properties.Resources.loginWall;
             this.pbLogin.Location = new System.Drawing.Point(1, 1);
             this.pbLogin.Name = "pbLogin";
             this.pbLogin.Size = new System.Drawing.Size(629, 323);

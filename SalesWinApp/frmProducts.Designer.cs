@@ -212,7 +212,7 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSearch.Image = global::SalesWinApp.Properties.Resources._211817_search_strong_icon__2_;
+            this.btnSearch.Image = global::SalesWinApp.Properties.Resources.search;
             this.btnSearch.Location = new System.Drawing.Point(12, 50);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(60, 25);
@@ -223,42 +223,33 @@
             // btnBack
             // 
             this.btnBack.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnBack.Image = global::SalesWinApp.Properties.Resources._216436_arrow_back_icon;
-            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBack.Image = global::SalesWinApp.Properties.Resources.backToHome;
             this.btnBack.Location = new System.Drawing.Point(1020, 457);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(103, 46);
             this.btnBack.TabIndex = 26;
-            this.btnBack.Text = "Back";
-            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDelete.Image = global::SalesWinApp.Properties.Resources._2290850_clean_delete_garbage_recycle_bin_trash_icon;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.Image = global::SalesWinApp.Properties.Resources.productDelete;
             this.btnDelete.Location = new System.Drawing.Point(1020, 390);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(106, 48);
             this.btnDelete.TabIndex = 25;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnUpdate.Image = global::SalesWinApp.Properties.Resources._7341128_e_commerce_online_shopping_ui_box_package_icon;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.Image = global::SalesWinApp.Properties.Resources.productUpdate;
             this.btnUpdate.Location = new System.Drawing.Point(908, 390);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(106, 48);
             this.btnUpdate.TabIndex = 24;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -266,14 +257,11 @@
             // 
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnAdd.Image = global::SalesWinApp.Properties.Resources._7341112_e_commerce_online_shopping_ui_package_icon1;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.Image = global::SalesWinApp.Properties.Resources.productAdd;
             this.btnAdd.Location = new System.Drawing.Point(796, 390);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(106, 48);
             this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 

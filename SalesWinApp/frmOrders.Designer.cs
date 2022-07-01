@@ -216,7 +216,7 @@
             // 
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Image = global::SalesWinApp.Properties.Resources.orderAdd;
             this.btnAdd.Location = new System.Drawing.Point(788, 424);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 44);
@@ -227,7 +227,7 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Image = global::SalesWinApp.Properties.Resources.orderDelete;
             this.btnDelete.Location = new System.Drawing.Point(902, 424);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 44);
@@ -238,7 +238,7 @@
             // btnUpdate
             // 
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.Image = global::SalesWinApp.Properties.Resources.allUpdate;
             this.btnUpdate.Location = new System.Drawing.Point(1021, 424);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 44);
@@ -272,7 +272,7 @@
             // btnBack
             // 
             this.btnBack.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.Image = global::SalesWinApp.Properties.Resources.backToHome;
             this.btnBack.Location = new System.Drawing.Point(1021, 480);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 46);

@@ -63,9 +63,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _211817_search_strong_icon__2_ {
+        internal static System.Drawing.Bitmap allUpdate {
             get {
-                object obj = ResourceManager.GetObject("211817_search_strong_icon (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("allUpdate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _216436_arrow_back_icon {
+        internal static System.Drawing.Bitmap backToHome {
             get {
-                object obj = ResourceManager.GetObject("216436_arrow_back_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("backToHome", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2290850_clean_delete_garbage_recycle_bin_trash_icon {
+        internal static System.Drawing.Bitmap loginWall {
             get {
-                object obj = ResourceManager.GetObject("2290850_clean_delete_garbage_recycle bin_trash_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("loginWall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3855610_delete_erase_minimise_remove_icon {
+        internal static System.Drawing.Bitmap memberAdd {
             get {
-                object obj = ResourceManager.GetObject("3855610_delete_erase_minimise_remove_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("memberAdd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _7341112_e_commerce_online_shopping_ui_package_icon {
+        internal static System.Drawing.Bitmap memberDelete {
             get {
-                object obj = ResourceManager.GetObject("7341112_e-commerce_online_shopping_ui_package_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("memberDelete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _7341112_e_commerce_online_shopping_ui_package_icon1 {
+        internal static System.Drawing.Bitmap orderAdd {
             get {
-                object obj = ResourceManager.GetObject("7341112_e-commerce_online_shopping_ui_package_icon1", resourceCulture);
+                object obj = ResourceManager.GetObject("orderAdd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _7341128_e_commerce_online_shopping_ui_box_package_icon {
+        internal static System.Drawing.Bitmap orderDelete {
             get {
-                object obj = ResourceManager.GetObject("7341128_e-commerce_online_shopping_ui_box package_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("orderDelete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,10 +133,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap engq1salesstaffchocngtynhtmithnhlplngupto100020190620145357_16194213920321657467488 {
+        internal static System.Drawing.Bitmap productAdd {
             get {
-                object obj = ResourceManager.GetObject("engq1salesstaffchocngtynhtmithnhlplngupto100020190620145357-161942139203216574674" +
-                        "88", resourceCulture);
+                object obj = ResourceManager.GetObject("productAdd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -144,9 +143,9 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_services_fcs {
+        internal static System.Drawing.Bitmap productDelete {
             get {
-                object obj = ResourceManager.GetObject("icon-services-fcs", resourceCulture);
+                object obj = ResourceManager.GetObject("productDelete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -154,9 +153,19 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LoginImage {
+        internal static System.Drawing.Bitmap productUpdate {
             get {
-                object obj = ResourceManager.GetObject("LoginImage", resourceCulture);
+                object obj = ResourceManager.GetObject("productUpdate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

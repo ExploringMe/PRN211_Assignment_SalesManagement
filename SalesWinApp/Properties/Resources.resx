@@ -118,34 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="2290850_clean_delete_garbage_recycle bin_trash_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2290850_clean_delete_garbage_recycle bin_trash_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="orderDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orderDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="7341112_e-commerce_online_shopping_ui_package_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7341112_e-commerce_online_shopping_ui_package_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="allUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\allUpdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LoginImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoginImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="orderAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orderAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon-services-fcs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-services-fcs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="productAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\productAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="7341112_e-commerce_online_shopping_ui_package_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7341112_e-commerce_online_shopping_ui_package_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3855610_delete_erase_minimise_remove_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3855610_delete_erase_minimise_remove_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="memberAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\memberAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="216436_arrow_back_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\216436_arrow_back_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backToHome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backToHome.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="engq1salesstaffchocngtynhtmithnhlplngupto100020190620145357-16194213920321657467488" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\engq1salesstaffchocngtynhtmithnhlplngupto100020190620145357-16194213920321657467488.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="productUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\productUpdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="7341128_e-commerce_online_shopping_ui_box package_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7341128_e-commerce_online_shopping_ui_box package_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="memberDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\memberDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="211817_search_strong_icon (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\211817_search_strong_icon (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="productDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\productDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loginWall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loginWall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
