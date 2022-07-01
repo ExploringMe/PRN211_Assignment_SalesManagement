@@ -16,5 +16,15 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

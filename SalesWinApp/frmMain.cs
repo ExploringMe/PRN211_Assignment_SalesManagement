@@ -16,5 +16,30 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
+
+        private void memberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statisticReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

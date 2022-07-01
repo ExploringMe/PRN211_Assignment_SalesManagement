@@ -16,5 +16,35 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmOrders_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMoreDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

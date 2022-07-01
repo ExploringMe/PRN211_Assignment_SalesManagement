@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace SalesWinApp
 {
-    public partial class frmProducts : Form
+    public partial class frmOrderDetail : Form
     {
-        public frmProducts()
+        public frmOrderDetail()
         {
             InitializeComponent();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
         {
 
         }
@@ -37,12 +27,17 @@ namespace SalesWinApp
 
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void frmProducts_Load(object sender, EventArgs e)
+        private void frmOrderDetail_Load(object sender, EventArgs e)
         {
 
         }
