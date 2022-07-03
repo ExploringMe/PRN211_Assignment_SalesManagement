@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BusinessObject;
 namespace SalesWinApp
 {
     public partial class frmOrders : Form
     {
+        IOrderRepository orderRepository;
         public frmOrders()
         {
             InitializeComponent();
+            orderRepository = new OrderRepository();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -45,6 +48,14 @@ namespace SalesWinApp
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime start = dateTimePicker1.Value.Date;
+            DateTime end = dateTimePicker2.Value.Date;
+          
+            dgvOrderList.DataSource = orderRepository.Search(x => x.OrderDate >= start.AddMinutes(-100) && x.OrderDate <= end).ToList();
         }
     }
 }
