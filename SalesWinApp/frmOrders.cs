@@ -55,7 +55,11 @@ namespace SalesWinApp
             DateTime start = dateTimePicker1.Value.Date;
             DateTime end = dateTimePicker2.Value.Date;
           
-            dgvOrderList.DataSource = orderRepository.Search(x => x.OrderDate >= start.AddMinutes(-100) && x.OrderDate <= end).ToList();
+            var orders = orderRepository.Search(x => x.OrderDate >= start.AddMinutes(-100) && x.OrderDate <= end).ToList();
+            var res = from order in orders
+                      orderby order.OrderDate ascending
+                      select order;
+            dgvOrderList.DataSource = res.ToList();
         }
     }
 }
