@@ -35,8 +35,11 @@
             this.txtUnitInStock = new System.Windows.Forms.TextBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.txtProductName = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.txtCategoryID = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.lbUnitPrice = new System.Windows.Forms.Label();
             this.lbWeight = new System.Windows.Forms.Label();
@@ -47,9 +50,6 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.gbGeneralInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
@@ -62,7 +62,7 @@
             this.gbGeneralInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.gbGeneralInfo.Location = new System.Drawing.Point(12, 81);
             this.gbGeneralInfo.Name = "gbGeneralInfo";
-            this.gbGeneralInfo.Size = new System.Drawing.Size(778, 422);
+            this.gbGeneralInfo.Size = new System.Drawing.Size(738, 422);
             this.gbGeneralInfo.TabIndex = 15;
             this.gbGeneralInfo.TabStop = false;
             this.gbGeneralInfo.Text = "General Information";
@@ -76,7 +76,7 @@
             this.dgvProductList.RowHeadersWidth = 51;
             this.dgvProductList.RowTemplate.Height = 29;
             this.dgvProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductList.Size = new System.Drawing.Size(766, 388);
+            this.dgvProductList.Size = new System.Drawing.Size(726, 388);
             this.dgvProductList.TabIndex = 0;
             // 
             // gbDetailInfo
@@ -84,8 +84,11 @@
             this.gbDetailInfo.Controls.Add(this.txtUnitInStock);
             this.gbDetailInfo.Controls.Add(this.txtUnitPrice);
             this.gbDetailInfo.Controls.Add(this.txtWeight);
+            this.gbDetailInfo.Controls.Add(this.btnDelete);
             this.gbDetailInfo.Controls.Add(this.txtProductName);
+            this.gbDetailInfo.Controls.Add(this.btnUpdate);
             this.gbDetailInfo.Controls.Add(this.txtCategoryID);
+            this.gbDetailInfo.Controls.Add(this.btnAdd);
             this.gbDetailInfo.Controls.Add(this.txtProductID);
             this.gbDetailInfo.Controls.Add(this.lbUnitPrice);
             this.gbDetailInfo.Controls.Add(this.lbWeight);
@@ -95,9 +98,9 @@
             this.gbDetailInfo.Controls.Add(this.lbCategoryID);
             this.gbDetailInfo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbDetailInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.gbDetailInfo.Location = new System.Drawing.Point(796, 50);
+            this.gbDetailInfo.Location = new System.Drawing.Point(756, 50);
             this.gbDetailInfo.Name = "gbDetailInfo";
-            this.gbDetailInfo.Size = new System.Drawing.Size(330, 334);
+            this.gbDetailInfo.Size = new System.Drawing.Size(300, 391);
             this.gbDetailInfo.TabIndex = 9;
             this.gbDetailInfo.TabStop = false;
             this.gbDetailInfo.Text = "Detail Information";
@@ -106,42 +109,76 @@
             // 
             this.txtUnitInStock.Location = new System.Drawing.Point(113, 283);
             this.txtUnitInStock.Name = "txtUnitInStock";
-            this.txtUnitInStock.Size = new System.Drawing.Size(207, 27);
+            this.txtUnitInStock.Size = new System.Drawing.Size(174, 27);
             this.txtUnitInStock.TabIndex = 21;
             // 
             // txtUnitPrice
             // 
             this.txtUnitPrice.Location = new System.Drawing.Point(113, 234);
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(207, 27);
+            this.txtUnitPrice.Size = new System.Drawing.Size(174, 27);
             this.txtUnitPrice.TabIndex = 20;
             // 
             // txtWeight
             // 
             this.txtWeight.Location = new System.Drawing.Point(113, 185);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(207, 27);
+            this.txtWeight.Size = new System.Drawing.Size(174, 27);
             this.txtWeight.TabIndex = 19;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDelete.Image = global::SalesWinApp.Properties.Resources.productDelete;
+            this.btnDelete.Location = new System.Drawing.Point(225, 337);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(67, 48);
+            this.btnDelete.TabIndex = 25;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(113, 131);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(207, 27);
+            this.txtProductName.Size = new System.Drawing.Size(174, 27);
             this.txtProductName.TabIndex = 18;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnUpdate.Image = global::SalesWinApp.Properties.Resources.productUpdate;
+            this.btnUpdate.Location = new System.Drawing.Point(113, 337);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(67, 48);
+            this.btnUpdate.TabIndex = 24;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtCategoryID
             // 
             this.txtCategoryID.Location = new System.Drawing.Point(113, 81);
             this.txtCategoryID.Name = "txtCategoryID";
-            this.txtCategoryID.Size = new System.Drawing.Size(207, 27);
+            this.txtCategoryID.Size = new System.Drawing.Size(174, 27);
             this.txtCategoryID.TabIndex = 7;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAdd.Image = global::SalesWinApp.Properties.Resources.productAdd;
+            this.btnAdd.Location = new System.Drawing.Point(6, 337);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(67, 48);
+            this.btnAdd.TabIndex = 23;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtProductID
             // 
             this.txtProductID.Location = new System.Drawing.Point(113, 34);
             this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(207, 27);
+            this.txtProductID.Size = new System.Drawing.Size(174, 27);
             this.txtProductID.TabIndex = 6;
             // 
             // lbUnitPrice
@@ -224,53 +261,19 @@
             // 
             this.btnBack.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnBack.Image = global::SalesWinApp.Properties.Resources.backToHome;
-            this.btnBack.Location = new System.Drawing.Point(1020, 457);
+            this.btnBack.Location = new System.Drawing.Point(762, 457);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(103, 46);
+            this.btnBack.Size = new System.Drawing.Size(287, 46);
             this.btnBack.TabIndex = 26;
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDelete.Image = global::SalesWinApp.Properties.Resources.productDelete;
-            this.btnDelete.Location = new System.Drawing.Point(1020, 390);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(106, 48);
-            this.btnDelete.TabIndex = 25;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnUpdate.Image = global::SalesWinApp.Properties.Resources.productUpdate;
-            this.btnUpdate.Location = new System.Drawing.Point(908, 390);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(106, 48);
-            this.btnUpdate.TabIndex = 24;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnAdd.Image = global::SalesWinApp.Properties.Resources.productAdd;
-            this.btnAdd.Location = new System.Drawing.Point(796, 390);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(106, 48);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("SimSun-ExtB", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Location = new System.Drawing.Point(78, 50);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(712, 25);
+            this.txtSearch.Size = new System.Drawing.Size(672, 25);
             this.txtSearch.TabIndex = 27;
             this.txtSearch.Text = "you are looking for...(lacking events identifiy)";
             // 
@@ -278,18 +281,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 515);
+            this.ClientSize = new System.Drawing.Size(1068, 515);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gbDetailInfo);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.gbGeneralInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProducts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmProducts_Load);
             this.gbGeneralInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();

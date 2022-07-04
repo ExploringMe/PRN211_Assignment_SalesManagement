@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lbTitle = new System.Windows.Forms.Label();
             this.msAction = new System.Windows.Forms.MenuStrip();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.msAction.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +53,9 @@
             // 
             this.msAction.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem,
+            this.memberManagementToolStripMenuItem,
+            this.productManagementToolStripMenuItem,
+            this.orderManagementToolStripMenuItem,
             this.statisticReportToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.msAction.Location = new System.Drawing.Point(0, 0);
@@ -64,15 +64,26 @@
             this.msAction.TabIndex = 8;
             this.msAction.Text = "HomeAction";
             // 
-            // menuToolStripMenuItem
+            // memberManagementToolStripMenuItem
             // 
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.memberToolStripMenuItem,
-            this.orderToolStripMenuItem,
-            this.productToolStripMenuItem});
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.menuToolStripMenuItem.Text = "Menu";
+            this.memberManagementToolStripMenuItem.Name = "memberManagementToolStripMenuItem";
+            this.memberManagementToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.memberManagementToolStripMenuItem.Text = "Member Management";
+            this.memberManagementToolStripMenuItem.Click += new System.EventHandler(this.memberManagementToolStripMenuItem_Click);
+            // 
+            // productManagementToolStripMenuItem
+            // 
+            this.productManagementToolStripMenuItem.Name = "productManagementToolStripMenuItem";
+            this.productManagementToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
+            this.productManagementToolStripMenuItem.Text = "Product Management";
+            this.productManagementToolStripMenuItem.Click += new System.EventHandler(this.productManagementToolStripMenuItem_Click);
+            // 
+            // orderManagementToolStripMenuItem
+            // 
+            this.orderManagementToolStripMenuItem.Name = "orderManagementToolStripMenuItem";
+            this.orderManagementToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.orderManagementToolStripMenuItem.Text = "Order Management";
+            this.orderManagementToolStripMenuItem.Click += new System.EventHandler(this.orderManagementToolStripMenuItem_Click);
             // 
             // statisticReportToolStripMenuItem
             // 
@@ -88,48 +99,19 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // memberToolStripMenuItem
-            // 
-            this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            this.memberToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.memberToolStripMenuItem.Text = "Member";
-            this.memberToolStripMenuItem.Click += new System.EventHandler(this.memberToolStripMenuItem_Click);
-            // 
-            // orderToolStripMenuItem
-            // 
-            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.orderToolStripMenuItem.Text = "Order";
-            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
-            // 
-            // productToolStripMenuItem
-            // 
-            this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.productToolStripMenuItem.Text = "Product";
-            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "this is statistic report(only on this form)";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.msAction);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.msAction;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.msAction.ResumeLayout(false);
             this.msAction.PerformLayout();
             this.ResumeLayout(false);
@@ -141,12 +123,10 @@
 
         private Label lbTitle;
         private MenuStrip msAction;
-        private ToolStripMenuItem menuToolStripMenuItem;
-        private ToolStripMenuItem memberToolStripMenuItem;
-        private ToolStripMenuItem orderToolStripMenuItem;
-        private ToolStripMenuItem productToolStripMenuItem;
+        private ToolStripMenuItem memberManagementToolStripMenuItem;
         private ToolStripMenuItem statisticReportToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private Label label1;
+        private ToolStripMenuItem productManagementToolStripMenuItem;
+        private ToolStripMenuItem orderManagementToolStripMenuItem;
     }
 }

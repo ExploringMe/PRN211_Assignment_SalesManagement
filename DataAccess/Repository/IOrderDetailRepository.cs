@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessObject;
 
 namespace DataAccess.Repository
 {
-    internal interface IOrderDetailRepository
+    public interface IOrderDetailRepository
     {
+        IEnumerable<OrderDetail> GetOrderDetails();
+        OrderDetail GetOrderDetailByID(int orderDetailByID);
+        void InsertOrderDetail(OrderDetail orderDetail);
+        void DeleteOrderDetail(int orderDetailID);
+        void UpdateOrderDetail(OrderDetail orderDetail);
     }
 }

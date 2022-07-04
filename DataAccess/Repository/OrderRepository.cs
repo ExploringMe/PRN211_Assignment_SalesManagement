@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessObject;
 
 namespace DataAccess.Repository
 {
-    internal class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
+        public IEnumerable<Order> GetOrders() => OrderDAO.Instance.GetOrders();
+        public Order GetOrderByID(int orderID) => OrderDAO.Instance.GetOrderByID(orderID);  
+        public void InsertOrder(Order order) => OrderDAO.Instance.AddOrder(order);
+        public void DeleteOrder(int orderID) => OrderDAO.Instance.DeleteOrder(orderID);
+        public void UpdateOrder(Order order) => OrderDAO.Instance.UpdateOrder(order);
     }
 }

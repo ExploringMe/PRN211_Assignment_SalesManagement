@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessObject;
 
 namespace DataAccess.Repository
 {
-    internal interface IProductRepository
+    public interface IProductRepository
     {
+            IEnumerable<Product> GetProducts();
+            Product GetProductByID(int productID);
+            void InsertProduct(Product product);
+            void DeleteProduct(int productID);
+            void UpdateProduct(Product product);
     }
 }
