@@ -9,7 +9,6 @@ namespace DataAccess
         {
             FStoreDB = new FStoreContext();
         }
-
         public static ProductDAO instance = null;
         private static readonly object instanceLock = new object();
         public static ProductDAO Instance
@@ -26,7 +25,6 @@ namespace DataAccess
                 }
             }
         }
-        
         public Product GetProductByID(int ProductID)
         {
             Product product = null;
@@ -37,7 +35,6 @@ namespace DataAccess
             }
             return product;
         }
-
         public IEnumerable<Product> GetProducts()
         {
             var products = new List<Product>();
@@ -47,7 +44,6 @@ namespace DataAccess
             }
             return products;
         }
-
         public void AddProduct(Product product)
         {
             try
