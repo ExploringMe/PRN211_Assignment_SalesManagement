@@ -36,8 +36,6 @@ namespace BusinessObject
             {
                 entity.ToTable("Member");
 
-                entity.Property(e => e.MemberId).ValueGeneratedNever();
-
                 entity.Property(e => e.City)
                     .HasMaxLength(15)
                     .IsUnicode(false);
@@ -63,8 +61,6 @@ namespace BusinessObject
             {
                 entity.ToTable("Order");
 
-                entity.Property(e => e.OrderId).ValueGeneratedNever();
-
                 entity.Property(e => e.Freight).HasColumnType("money");
 
                 entity.Property(e => e.OrderDate).HasColumnType("datetime");
@@ -82,20 +78,21 @@ namespace BusinessObject
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.OrderId, e.ProductId })
+                    .HasName("PK_OderDetail");
 
                 entity.ToTable("OrderDetail");
 
                 entity.Property(e => e.UnitPrice).HasColumnType("money");
 
                 entity.HasOne(d => d.Order)
-                    .WithMany()
+                    .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrderDetail_Order");
 
                 entity.HasOne(d => d.Product)
-                    .WithMany()
+                    .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrderDetail_Product");
@@ -104,8 +101,6 @@ namespace BusinessObject
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.ToTable("Product");
-
-                entity.Property(e => e.ProductId).ValueGeneratedNever();
 
                 entity.Property(e => e.ProductName)
                     .HasMaxLength(40)

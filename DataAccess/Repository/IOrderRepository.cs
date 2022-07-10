@@ -9,5 +9,7 @@ namespace DataAccess.Repository
         void InsertOrder(Order order);
         void DeleteOrder(int orderID);
         void UpdateOrder(Order order);
+        void DeleteOrderByMemberID(int memberID);
+        dynamic GetMemberID();
     }
 }

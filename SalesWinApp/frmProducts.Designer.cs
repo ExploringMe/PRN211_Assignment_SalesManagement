@@ -32,15 +32,15 @@
             this.gbGeneralInfo = new System.Windows.Forms.GroupBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
             this.gbDetailInfo = new System.Windows.Forms.GroupBox();
-            this.txtUnitInStock = new System.Windows.Forms.TextBox();
-            this.txtUnitPrice = new System.Windows.Forms.TextBox();
+            this.mtxtUnitPrice = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtUnitInStock = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtCategoryID = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtProductID = new System.Windows.Forms.MaskedTextBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtCategoryID = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtProductID = new System.Windows.Forms.TextBox();
             this.lbUnitPrice = new System.Windows.Forms.Label();
             this.lbWeight = new System.Windows.Forms.Label();
             this.lbUnitInStock = new System.Windows.Forms.Label();
@@ -78,18 +78,19 @@
             this.dgvProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductList.Size = new System.Drawing.Size(726, 388);
             this.dgvProductList.TabIndex = 0;
+            this.dgvProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellClick);
             // 
             // gbDetailInfo
             // 
-            this.gbDetailInfo.Controls.Add(this.txtUnitInStock);
-            this.gbDetailInfo.Controls.Add(this.txtUnitPrice);
+            this.gbDetailInfo.Controls.Add(this.mtxtUnitPrice);
+            this.gbDetailInfo.Controls.Add(this.mtxtUnitInStock);
+            this.gbDetailInfo.Controls.Add(this.mtxtCategoryID);
+            this.gbDetailInfo.Controls.Add(this.mtxtProductID);
             this.gbDetailInfo.Controls.Add(this.txtWeight);
             this.gbDetailInfo.Controls.Add(this.btnDelete);
             this.gbDetailInfo.Controls.Add(this.txtProductName);
             this.gbDetailInfo.Controls.Add(this.btnUpdate);
-            this.gbDetailInfo.Controls.Add(this.txtCategoryID);
             this.gbDetailInfo.Controls.Add(this.btnAdd);
-            this.gbDetailInfo.Controls.Add(this.txtProductID);
             this.gbDetailInfo.Controls.Add(this.lbUnitPrice);
             this.gbDetailInfo.Controls.Add(this.lbWeight);
             this.gbDetailInfo.Controls.Add(this.lbUnitInStock);
@@ -105,19 +106,41 @@
             this.gbDetailInfo.TabStop = false;
             this.gbDetailInfo.Text = "Detail Information";
             // 
-            // txtUnitInStock
+            // mtxtUnitPrice
             // 
-            this.txtUnitInStock.Location = new System.Drawing.Point(113, 283);
-            this.txtUnitInStock.Name = "txtUnitInStock";
-            this.txtUnitInStock.Size = new System.Drawing.Size(174, 27);
-            this.txtUnitInStock.TabIndex = 21;
+            this.mtxtUnitPrice.Location = new System.Drawing.Point(113, 234);
+            this.mtxtUnitPrice.Mask = "000000000";
+            this.mtxtUnitPrice.Name = "mtxtUnitPrice";
+            this.mtxtUnitPrice.Size = new System.Drawing.Size(174, 27);
+            this.mtxtUnitPrice.TabIndex = 29;
+            this.mtxtUnitPrice.ValidatingType = typeof(int);
             // 
-            // txtUnitPrice
+            // mtxtUnitInStock
             // 
-            this.txtUnitPrice.Location = new System.Drawing.Point(113, 234);
-            this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(174, 27);
-            this.txtUnitPrice.TabIndex = 20;
+            this.mtxtUnitInStock.Location = new System.Drawing.Point(113, 283);
+            this.mtxtUnitInStock.Mask = "00000";
+            this.mtxtUnitInStock.Name = "mtxtUnitInStock";
+            this.mtxtUnitInStock.Size = new System.Drawing.Size(174, 27);
+            this.mtxtUnitInStock.TabIndex = 28;
+            // 
+            // mtxtCategoryID
+            // 
+            this.mtxtCategoryID.Location = new System.Drawing.Point(113, 81);
+            this.mtxtCategoryID.Mask = "00000";
+            this.mtxtCategoryID.Name = "mtxtCategoryID";
+            this.mtxtCategoryID.Size = new System.Drawing.Size(174, 27);
+            this.mtxtCategoryID.TabIndex = 27;
+            this.mtxtCategoryID.ValidatingType = typeof(int);
+            // 
+            // mtxtProductID
+            // 
+            this.mtxtProductID.Location = new System.Drawing.Point(113, 34);
+            this.mtxtProductID.Mask = "00000";
+            this.mtxtProductID.Name = "mtxtProductID";
+            this.mtxtProductID.ReadOnly = true;
+            this.mtxtProductID.Size = new System.Drawing.Size(174, 27);
+            this.mtxtProductID.TabIndex = 26;
+            this.mtxtProductID.ValidatingType = typeof(int);
             // 
             // txtWeight
             // 
@@ -155,13 +178,6 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtCategoryID
-            // 
-            this.txtCategoryID.Location = new System.Drawing.Point(113, 81);
-            this.txtCategoryID.Name = "txtCategoryID";
-            this.txtCategoryID.Size = new System.Drawing.Size(174, 27);
-            this.txtCategoryID.TabIndex = 7;
-            // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -173,13 +189,6 @@
             this.btnAdd.TabIndex = 23;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.Location = new System.Drawing.Point(113, 34);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(174, 27);
-            this.txtProductID.TabIndex = 6;
             // 
             // lbUnitPrice
             // 
@@ -307,8 +316,6 @@
         private DataGridView dgvProductList;
         private GroupBox gbDetailInfo;
         private TextBox txtProductName;
-        private TextBox txtCategoryID;
-        private TextBox txtProductID;
         private Label lbUnitPrice;
         private Label lbWeight;
         private Label lbUnitInStock;
@@ -317,13 +324,15 @@
         private Label lbCategoryID;
         private Label lbTitle;
         private Button btnSearch;
-        private TextBox txtUnitInStock;
-        private TextBox txtUnitPrice;
         private TextBox txtWeight;
         private Button btnBack;
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
         private TextBox txtSearch;
+        private MaskedTextBox mtxtUnitInStock;
+        private MaskedTextBox mtxtCategoryID;
+        private MaskedTextBox mtxtProductID;
+        private MaskedTextBox mtxtUnitPrice;
     }
 }

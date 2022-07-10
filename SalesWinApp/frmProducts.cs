@@ -15,65 +15,94 @@ namespace SalesWinApp
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            //Trần Văn Trí code
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-     
+            var product = GetProductObject();
+            try
+            {
+                if (product != null)
+                {
+                    productRepository.InsertProduct(product);
+                    LoadProductList();
+                    MessageBox.Show("Add new product successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Add new product fail. Fill in the blank information box!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            LoadProductList();
+            var product = GetProductObject();
+            product.ProductId = int.Parse(mtxtProductID.Text);
+
+            try
+            {
+                if (product != null)
+                {
+                    productRepository.UpdateProduct(product);
+                    LoadProductList();
+                    MessageBox.Show("Update product successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update product fail. Select a product beside to update!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                var product = GetProductObject();
-                productRepository.DeleteProduct(product.ProductId);
+                var productID = int.Parse(mtxtProductID.Text);
+                productRepository.DeleteProduct(productID);
                 LoadProductList();
+                mtxtProductID.Clear();
+                MessageBox.Show("Delete product successfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Delete a product");
+                MessageBox.Show("Delete product fail. Select a product beside to delete!");
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e) => Close();
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         private void frmProducts_Load(object sender, EventArgs e)
         {
             LoadProductList();
         }
-        //private void DgvCarList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    frmCarDetails frmCarDetails = new frmCarDetails
-        //    {
-        //        Text = "Update car",
-        //        InsertOrUpdate = true,
-        //        CarInfo = GetCarObject(),
-        //        CarRepository = carRepository
-        //    };
-        //    if (frmCarDetails.ShowDialog() == DialogResult.OK)
-        //    {
-        //        LoadCarList();
-        //        //Set focus car updated
-        //        source.Position = source.Count - 1;
-        //    }
-        //}
-        //Clear Text on TextBoxes
-        private void ClearText()
+
+        private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtProductID.Text = string.Empty;
-            txtCategoryID.Text = string.Empty;
-            txtProductName.Text = string.Empty;
-            txtWeight.Text = string.Empty;
-            txtUnitPrice.Text = string.Empty;
-            txtUnitInStock.Text = string.Empty;
+            if (e.RowIndex >= 0 && e.RowIndex < dgvProductList.Rows.Count - 1)
+            {
+                mtxtProductID.Text = dgvProductList.Rows[e.RowIndex].Cells["ProductID"].Value.ToString();
+                mtxtCategoryID.Text = dgvProductList.Rows[e.RowIndex].Cells["CategoryID"].Value.ToString();
+                txtProductName.Text = dgvProductList.Rows[e.RowIndex].Cells["ProductName"].Value.ToString();
+                txtWeight.Text = dgvProductList.Rows[e.RowIndex].Cells["Weight"].Value.ToString();
+                mtxtUnitPrice.Text = dgvProductList.Rows[e.RowIndex].Cells["UnitPrice"].Value.ToString();
+                mtxtUnitInStock.Text = dgvProductList.Rows[e.RowIndex].Cells["UnitInStock"].Value.ToString();
+            }
         }
+
         private Product GetProductObject()
         {
             Product product = null;
@@ -81,12 +110,11 @@ namespace SalesWinApp
             {
                 product = new Product
                 {
-                    ProductId = int.Parse(txtProductID.Text),
-                    CategoryId = int.Parse(txtCategoryID.Text),
+                    CategoryId = int.Parse(mtxtCategoryID.Text),
                     ProductName = txtProductName.Text,
                     Weight = txtWeight.Text,
-                    UnitPrice = decimal.Parse(txtUnitPrice.Text),
-                    UnitInStock = int.Parse(txtUnitInStock.Text)
+                    UnitPrice = decimal.Parse(mtxtUnitPrice.Text),
+                    UnitInStock = int.Parse(mtxtUnitInStock.Text)
                 };
             }
             catch (Exception ex)
@@ -95,7 +123,8 @@ namespace SalesWinApp
             }
             return product;
         }
-        public void LoadProductList()
+
+        private void LoadProductList()
         {
             var products = productRepository.GetProducts();
             try
@@ -103,41 +132,31 @@ namespace SalesWinApp
                 source = new BindingSource();
                 source.DataSource = products;
 
-                txtProductID.DataBindings.Clear();
-                txtCategoryID.DataBindings.Clear();
-                txtProductName.DataBindings.Clear();
-                txtWeight.DataBindings.Clear();
-                txtUnitPrice.DataBindings.Clear();
-                txtUnitInStock.DataBindings.Clear();
-
-                txtProductID.DataBindings.Add("Text", source, "ProductID");
-                txtCategoryID.DataBindings.Add("Text", source, "CategoryID");
-                txtProductName.DataBindings.Add("Text", source, "ProductName");
-                txtWeight.DataBindings.Add("Text", source, "Weight");
-                txtUnitPrice.DataBindings.Add("Text", source, "UnitPrice");
-                txtUnitInStock.DataBindings.Add("Text", source, "UnitInStock");
-
                 dgvProductList.DataSource = null;
                 dgvProductList.DataSource = source;
+
+                dgvProductList.Columns[0].Width = (int)(dgvProductList.Width * 0.1);
+                dgvProductList.Columns[1].Width = (int)(dgvProductList.Width * 0.1);
+                dgvProductList.Columns[2].Width = (int)(dgvProductList.Width * 0.21);
+                dgvProductList.Columns[3].Width = (int)(dgvProductList.Width * 0.2);
+                dgvProductList.Columns[4].Width = (int)(dgvProductList.Width * 0.2);
+                dgvProductList.Columns[5].Width = (int)(dgvProductList.Width * 0.12);
+                dgvProductList.Columns[6].Width = (int)(dgvProductList.Width * 0);
                 if (products.Count() == 0)
                 {
-                    ClearText();
                     btnDelete.Enabled = false;
+                    btnUpdate.Enabled = false;
                 }
                 else
                 {
                     btnDelete.Enabled = true;
+                    btnUpdate.Enabled = true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Load product list");
             }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearText();
         }
     }
 }

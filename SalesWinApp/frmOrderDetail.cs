@@ -1,86 +1,44 @@
-﻿using BusinessObject;
-using DataAccess.Repository;
+﻿using DataAccess.Repository;
 
 namespace SalesWinApp
 {
     public partial class frmOrderDetail : Form
     {
-        IOrderDetailRepository OrderDetailRepository = new OrderDetailRepository();
+        IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
         BindingSource source;
-
         public frmOrderDetail()
         {
             InitializeComponent();
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        public int orderID;
         private void btnBack_Click(object sender, EventArgs e) => Close();
-
         private void frmOrderDetail_Load(object sender, EventArgs e)
         {
-            LoadOrderDetailList();
+            LoadOrderDetailList(orderID);
         }
-
-        private void ClearText()
+        public void LoadOrderDetailList(int orderId)
         {
-            txtOrderID.Text = string.Empty;
-            txtProductID.Text = string.Empty;
-            txtQuantity.Text = string.Empty;
-            txtUnitPrice.Text = string.Empty;
-            txtDiscount.Text = string.Empty;
-        }
-
-        public void LoadOrderDetailList()
-        {
-            var orderDetails = OrderDetailRepository.GetOrderDetails();
+            var orderDetails = orderDetailRepository.GetOrderDetails(orderId);
             try
             {
                 source = new BindingSource();
                 source.DataSource = orderDetails;
 
-                txtOrderID.DataBindings.Clear();
-                txtProductID.DataBindings.Clear();
-                txtUnitPrice.DataBindings.Clear();
-                txtQuantity.DataBindings.Clear();
-                txtDiscount.DataBindings.Clear();
-
-                txtOrderID.DataBindings.Add("Text", source, "OrderID");
-                txtProductID.DataBindings.Add("Text", source, "ProductID");
-                txtUnitPrice.DataBindings.Add("Text", source, "UnitPrice");
-                txtQuantity.DataBindings.Add("Text", source, "Quantity");
-                txtDiscount.DataBindings.Add("Text", source, "Discount");
-
                 dgvOrderDetailList.DataSource = null;
                 dgvOrderDetailList.DataSource = source;
-                if (orderDetails.Count() == 0)
-                {
-                    ClearText();
-                    btnDelete.Enabled = false;
-                }
-                else
-                {
-                    btnDelete.Enabled = true;
-                }
+
+                dgvOrderDetailList.Columns[0].Width = (int)(dgvOrderDetailList.Width * 0.15);
+                dgvOrderDetailList.Columns[1].Width = (int)(dgvOrderDetailList.Width * 0.15);
+                dgvOrderDetailList.Columns[2].Width = (int)(dgvOrderDetailList.Width * 0.3);
+                dgvOrderDetailList.Columns[3].Width = (int)(dgvOrderDetailList.Width * 0.15);
+                dgvOrderDetailList.Columns[4].Width = (int)(dgvOrderDetailList.Width * 0.15);
+                dgvOrderDetailList.Columns[5].Width = (int)(dgvOrderDetailList.Width * 0);
+                dgvOrderDetailList.Columns[6].Width = (int)(dgvOrderDetailList.Width * 0);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Load orderDetail list");
             }
         }
-
     }
 }

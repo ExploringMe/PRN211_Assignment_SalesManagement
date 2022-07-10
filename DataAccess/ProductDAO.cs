@@ -1,6 +1,4 @@
 ﻿using BusinessObject;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using System.Data;
 
 namespace DataAccess
 {
@@ -26,7 +24,6 @@ namespace DataAccess
                     }
                     return instance;
                 }
-
             }
         }
         
@@ -53,28 +50,63 @@ namespace DataAccess
 
         public void AddProduct(Product product)
         {
-
+            try
+            {
+                product.ProductId = 0;
+                FStoreDB.Products.Add(product);
+                FStoreDB.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public void UpdateProduct(Product product)
         {
-
+            try
+            {
+                var p = GetProductByID(product.ProductId);
+                p.CategoryId = product.CategoryId;
+                p.ProductName = product.ProductName;
+                p.Weight = product.Weight;
+                p.UnitPrice = product.UnitPrice;
+                p.UnitInStock = product.UnitInStock;
+                FStoreDB.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public void DeleteProduct(int productID)
         {
-            Product product = GetProductByID(productID);
             try
             {
-                if (product != null)
+                DeleteOrderDetailByProductID(productID);
+                Product product = GetProductByID(productID);
+                FStoreDB.Products.Remove(product);
+                FStoreDB.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public void DeleteOrderDetailByProductID(int productID)
+        {
+            try
+            {
+                foreach (var od in FStoreDB.OrderDetails)
                 {
-                    FStoreDB.Products.Remove(product);
-                }
-                else
-                {
-                    throw new Exception("The car is not exist");
+                    if (od.ProductId == productID)
+                    {
+                        FStoreDB.OrderDetails.Remove(od);
+                    }
                 }
             }
             catch (Exception ex)
             {
+
                 throw new Exception(ex.Message);
             }
         }

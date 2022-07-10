@@ -23,38 +23,19 @@ namespace DataAccess
                     }
                     return instance;
                 }
-
             }
         }
-
-
-        public OrderDetail GetOrderDetailByID(int OrderDetailID)
-        {
-            OrderDetail orderDetail = null;
-            return orderDetail;
-        }
-
-        public IEnumerable<OrderDetail> GetOrderDetails()
+        public IEnumerable<OrderDetail> GetOrderDetails(int orderID)
         {
             var orderDetails = new List<OrderDetail>();
             foreach (var od in FStoreDB.OrderDetails)
             {
-                orderDetails.Add(od);
+                if (od.OrderId.Equals(orderID))
+                {
+                    orderDetails.Add(od);
+                }
             }
             return orderDetails;
-        }
-
-        public void AddOrderDetail(OrderDetail orderDetail)
-        {
-
-        }
-        public void UpdateOrderDetail(OrderDetail orderDetail)
-        {
-
-        }
-        public void DeleteOrderDetail(int orderDetailID)
-        {
-
         }
     }
 }

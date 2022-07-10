@@ -31,13 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrders));
             this.lbTitle = new System.Windows.Forms.Label();
             this.gbDetailInfo = new System.Windows.Forms.GroupBox();
+            this.dtpShippedDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpRequiredDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.cbMemberID = new System.Windows.Forms.ComboBox();
+            this.txtOrderID = new System.Windows.Forms.TextBox();
             this.txtFreight = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnMoreDetail = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtMemberID = new System.Windows.Forms.TextBox();
-            this.txtOrderID = new System.Windows.Forms.TextBox();
             this.lbRequiredDate = new System.Windows.Forms.Label();
             this.lbOrderDate = new System.Windows.Forms.Label();
             this.lbShippedDate = new System.Windows.Forms.Label();
@@ -47,9 +50,6 @@
             this.gbGeneralInfo = new System.Windows.Forms.GroupBox();
             this.dgvOrderList = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
-            this.mtxtOrderDate = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtRequiredDate = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtShippedDate = new System.Windows.Forms.MaskedTextBox();
             this.gbDetailInfo.SuspendLayout();
             this.gbGeneralInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
@@ -68,16 +68,16 @@
             // 
             // gbDetailInfo
             // 
-            this.gbDetailInfo.Controls.Add(this.mtxtShippedDate);
-            this.gbDetailInfo.Controls.Add(this.mtxtRequiredDate);
-            this.gbDetailInfo.Controls.Add(this.mtxtOrderDate);
+            this.gbDetailInfo.Controls.Add(this.dtpShippedDate);
+            this.gbDetailInfo.Controls.Add(this.dtpRequiredDate);
+            this.gbDetailInfo.Controls.Add(this.dtpOrderDate);
+            this.gbDetailInfo.Controls.Add(this.cbMemberID);
+            this.gbDetailInfo.Controls.Add(this.txtOrderID);
             this.gbDetailInfo.Controls.Add(this.txtFreight);
             this.gbDetailInfo.Controls.Add(this.btnUpdate);
             this.gbDetailInfo.Controls.Add(this.btnDelete);
             this.gbDetailInfo.Controls.Add(this.btnMoreDetail);
             this.gbDetailInfo.Controls.Add(this.btnAdd);
-            this.gbDetailInfo.Controls.Add(this.txtMemberID);
-            this.gbDetailInfo.Controls.Add(this.txtOrderID);
             this.gbDetailInfo.Controls.Add(this.lbRequiredDate);
             this.gbDetailInfo.Controls.Add(this.lbOrderDate);
             this.gbDetailInfo.Controls.Add(this.lbShippedDate);
@@ -92,6 +92,54 @@
             this.gbDetailInfo.TabIndex = 8;
             this.gbDetailInfo.TabStop = false;
             this.gbDetailInfo.Text = "Detail Information";
+            // 
+            // dtpShippedDate
+            // 
+            this.dtpShippedDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpShippedDate.Location = new System.Drawing.Point(113, 283);
+            this.dtpShippedDate.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.dtpShippedDate.MinDate = new System.DateTime(1996, 1, 1, 0, 0, 0, 0);
+            this.dtpShippedDate.Name = "dtpShippedDate";
+            this.dtpShippedDate.Size = new System.Drawing.Size(164, 27);
+            this.dtpShippedDate.TabIndex = 25;
+            // 
+            // dtpRequiredDate
+            // 
+            this.dtpRequiredDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpRequiredDate.Location = new System.Drawing.Point(113, 234);
+            this.dtpRequiredDate.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            this.dtpRequiredDate.MinDate = new System.DateTime(1996, 1, 1, 0, 0, 0, 0);
+            this.dtpRequiredDate.Name = "dtpRequiredDate";
+            this.dtpRequiredDate.Size = new System.Drawing.Size(164, 27);
+            this.dtpRequiredDate.TabIndex = 24;
+            // 
+            // dtpOrderDate
+            // 
+            this.dtpOrderDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.dtpOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpOrderDate.Location = new System.Drawing.Point(113, 185);
+            this.dtpOrderDate.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.dtpOrderDate.MinDate = new System.DateTime(1996, 1, 1, 0, 0, 0, 0);
+            this.dtpOrderDate.Name = "dtpOrderDate";
+            this.dtpOrderDate.Size = new System.Drawing.Size(164, 27);
+            this.dtpOrderDate.TabIndex = 23;
+            this.dtpOrderDate.Value = new System.DateTime(2022, 7, 9, 0, 0, 0, 0);
+            // 
+            // cbMemberID
+            // 
+            this.cbMemberID.FormattingEnabled = true;
+            this.cbMemberID.Location = new System.Drawing.Point(113, 80);
+            this.cbMemberID.Name = "cbMemberID";
+            this.cbMemberID.Size = new System.Drawing.Size(164, 28);
+            this.cbMemberID.TabIndex = 22;
+            // 
+            // txtOrderID
+            // 
+            this.txtOrderID.Location = new System.Drawing.Point(113, 30);
+            this.txtOrderID.Name = "txtOrderID";
+            this.txtOrderID.ReadOnly = true;
+            this.txtOrderID.Size = new System.Drawing.Size(164, 27);
+            this.txtOrderID.TabIndex = 6;
             // 
             // txtFreight
             // 
@@ -144,20 +192,6 @@
             this.btnAdd.TabIndex = 10;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtMemberID
-            // 
-            this.txtMemberID.Location = new System.Drawing.Point(113, 81);
-            this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.Size = new System.Drawing.Size(164, 27);
-            this.txtMemberID.TabIndex = 7;
-            // 
-            // txtOrderID
-            // 
-            this.txtOrderID.Location = new System.Drawing.Point(113, 34);
-            this.txtOrderID.Name = "txtOrderID";
-            this.txtOrderID.Size = new System.Drawing.Size(164, 27);
-            this.txtOrderID.TabIndex = 6;
             // 
             // lbRequiredDate
             // 
@@ -235,6 +269,8 @@
             this.dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrderList.Size = new System.Drawing.Size(764, 412);
             this.dgvOrderList.TabIndex = 0;
+            this.dgvOrderList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellClick);
+            this.dgvOrderList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellDoubleClick);
             // 
             // btnBack
             // 
@@ -246,33 +282,6 @@
             this.btnBack.TabIndex = 27;
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // mtxtOrderDate
-            // 
-            this.mtxtOrderDate.Location = new System.Drawing.Point(113, 185);
-            this.mtxtOrderDate.Mask = "00/00/0000";
-            this.mtxtOrderDate.Name = "mtxtOrderDate";
-            this.mtxtOrderDate.Size = new System.Drawing.Size(164, 27);
-            this.mtxtOrderDate.TabIndex = 19;
-            this.mtxtOrderDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // mtxtRequiredDate
-            // 
-            this.mtxtRequiredDate.Location = new System.Drawing.Point(113, 234);
-            this.mtxtRequiredDate.Mask = "00/00/0000";
-            this.mtxtRequiredDate.Name = "mtxtRequiredDate";
-            this.mtxtRequiredDate.Size = new System.Drawing.Size(164, 27);
-            this.mtxtRequiredDate.TabIndex = 20;
-            this.mtxtRequiredDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // mtxtShippedDate
-            // 
-            this.mtxtShippedDate.Location = new System.Drawing.Point(113, 283);
-            this.mtxtShippedDate.Mask = "00/00/0000";
-            this.mtxtShippedDate.Name = "mtxtShippedDate";
-            this.mtxtShippedDate.Size = new System.Drawing.Size(164, 27);
-            this.mtxtShippedDate.TabIndex = 21;
-            this.mtxtShippedDate.ValidatingType = typeof(System.DateTime);
             // 
             // frmOrders
             // 
@@ -301,7 +310,6 @@
 
         private Label lbTitle;
         private GroupBox gbDetailInfo;
-        private TextBox txtMemberID;
         private TextBox txtOrderID;
         private Label lbRequiredDate;
         private Label lbOrderDate;
@@ -317,8 +325,9 @@
         private DataGridView dgvOrderList;
         private TextBox txtFreight;
         private Button btnBack;
-        private MaskedTextBox mtxtShippedDate;
-        private MaskedTextBox mtxtRequiredDate;
-        private MaskedTextBox mtxtOrderDate;
+        private DateTimePicker dtpShippedDate;
+        private DateTimePicker dtpRequiredDate;
+        private DateTimePicker dtpOrderDate;
+        private ComboBox cbMemberID;
     }
 }

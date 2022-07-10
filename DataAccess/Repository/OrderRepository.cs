@@ -9,5 +9,7 @@ namespace DataAccess.Repository
         public void InsertOrder(Order order) => OrderDAO.Instance.AddOrder(order);
         public void DeleteOrder(int orderID) => OrderDAO.Instance.DeleteOrder(orderID);
         public void UpdateOrder(Order order) => OrderDAO.Instance.UpdateOrder(order);
+        public void DeleteOrderByMemberID(int memberID) => OrderDAO.Instance.DeleteOrderByMemberID(memberID);
+        public dynamic GetMemberID() => OrderDAO.Instance.GetMemberID();
     }
 }
