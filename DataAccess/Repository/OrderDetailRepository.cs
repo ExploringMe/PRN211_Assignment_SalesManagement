@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessObject;
 
 namespace DataAccess.Repository
 {
-    internal class OrderDetailRepository
+    public class OrderDetailRepository : IOrderDetailRepository
     {
+        public IEnumerable<OrderDetail> GetOrderDetails(int orderID) => OrderDetailDAO.Instance.GetOrderDetails(orderID);
     }
 }

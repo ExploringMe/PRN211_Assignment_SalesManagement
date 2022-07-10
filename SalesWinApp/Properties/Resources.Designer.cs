@@ -83,6 +83,16 @@ namespace SalesWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ClearText {
+            get {
+                object obj = ResourceManager.GetObject("ClearText", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loginWall {
             get {
                 object obj = ResourceManager.GetObject("loginWall", resourceCulture);

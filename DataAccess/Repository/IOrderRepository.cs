@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessObject;
+﻿using BusinessObject;
+
 namespace DataAccess.Repository
 {
     public interface IOrderRepository
     {
         IEnumerable<Order> Search(Expression<Func<Order, bool>> ex);
+        IEnumerable<Order> GetOrders();
+        Order GetOrderByID(int orderID);
+        void InsertOrder(Order order);
+        void DeleteOrder(int orderID);
+        void UpdateOrder(Order order);
+        void DeleteOrderByMemberID(int memberID);
+        dynamic GetMemberID();
     }
 }
