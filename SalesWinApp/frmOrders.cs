@@ -1,16 +1,29 @@
-﻿using BusinessObject;
 using DataAccess.Repository;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using BusinessObject;
 
 namespace SalesWinApp
 {
     public partial class frmOrders : Form
     {
+//Tri
+        //IOrderRepository orderRepository;
+//Tri
         IOrderRepository orderRepository = new OrderRepository();
         IMemberRepository memberRepository = new MemberRepository();
         BindingSource source;
         public frmOrders()
         {
             InitializeComponent();
+            orderRepository = new OrderRepository();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -200,5 +213,18 @@ namespace SalesWinApp
             f.orderID = orderID;
             f.ShowDialog();
         }
+//Tri
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime start = dateTimePicker1.Value.Date;
+            DateTime end = dateTimePicker2.Value.Date;
+          
+            var orders = orderRepository.Search(x => x.OrderDate >= start.AddMinutes(-100) && x.OrderDate <= end).ToList();
+            var res = from order in orders
+                      orderby order.OrderDate ascending
+                      select order;
+            dgvOrderList.DataSource = res.ToList();
+        }
+        //Tri
     }
 }

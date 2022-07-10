@@ -51,6 +51,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnPrice = new System.Windows.Forms.Button();
+            this.txt1 = new System.Windows.Forms.TextBox();
+            this.txt2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.gbGeneralInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.gbDetailInfo.SuspendLayout();
@@ -70,7 +74,7 @@
             // dgvProductList
             // 
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductList.Location = new System.Drawing.Point(6, 26);
+            this.dgvProductList.Location = new System.Drawing.Point(6, 28);
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.ReadOnly = true;
             this.dgvProductList.RowHeadersWidth = 51;
@@ -286,11 +290,53 @@
             this.txtSearch.TabIndex = 27;
             this.txtSearch.Text = "you are looking for...(lacking events identifiy)";
             // 
+            // btnPrice
+            // 
+            this.btnPrice.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPrice.Image = global::SalesWinApp.Properties.Resources.search;
+            this.btnPrice.Location = new System.Drawing.Point(18, 525);
+            this.btnPrice.Name = "btnPrice";
+            this.btnPrice.Size = new System.Drawing.Size(60, 25);
+            this.btnPrice.TabIndex = 28;
+            this.btnPrice.UseVisualStyleBackColor = true;
+            this.btnPrice.Click += new System.EventHandler(this.btnPrice_Click);
+            // 
+            // txt1
+            // 
+            this.txt1.Location = new System.Drawing.Point(247, 526);
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(125, 27);
+            this.txt1.TabIndex = 29;
+            this.txt1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1_KeyPress);
+            // 
+            // txt2
+            // 
+            this.txt2.Location = new System.Drawing.Point(400, 526);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(125, 27);
+            this.txt2.TabIndex = 30;
+            this.txt2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1_KeyPress);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(93, 525);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(129, 28);
+            this.comboBox1.TabIndex = 31;
+            // 
             // frmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+//Tri
+            this.ClientSize = new System.Drawing.Size(1138, 572);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txt2);
+            this.Controls.Add(this.txt1);
+            this.Controls.Add(this.btnPrice);
             this.ClientSize = new System.Drawing.Size(1068, 515);
+//Tri
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSearch);
@@ -301,6 +347,7 @@
             this.Name = "frmProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmProducts_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1_KeyPress);
             this.gbGeneralInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.gbDetailInfo.ResumeLayout(false);
@@ -330,9 +377,15 @@
         private Button btnUpdate;
         private Button btnAdd;
         private TextBox txtSearch;
+//Tri
+        private Button btnPrice;
+        private TextBox txt1;
+        private TextBox txt2;
+        private ComboBox comboBox1;
         private MaskedTextBox mtxtUnitInStock;
         private MaskedTextBox mtxtCategoryID;
         private MaskedTextBox mtxtProductID;
         private MaskedTextBox mtxtUnitPrice;
+//Tri
     }
 }
