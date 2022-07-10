@@ -312,15 +312,12 @@
             // 
             // frmOrders
             // 
-            //Tri Code
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 637);
+            this.ClientSize = new System.Drawing.Size(1093, 671);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.ClientSize = new System.Drawing.Size(1093, 509);
-//Tri code
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.gbGeneralInfo);
             this.Controls.Add(this.gbDetailInfo);
@@ -362,8 +359,8 @@
         private DateTimePicker dtpRequiredDate;
         private DateTimePicker dtpOrderDate;
 //Tri
-        private TextBox txtFreight;
-        private Button btnBack;
+        //private TextBox txtFreight;
+        //private Button btnBack;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private Button button1;

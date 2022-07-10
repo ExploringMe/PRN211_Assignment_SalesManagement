@@ -14,7 +14,7 @@ namespace SalesWinApp
 {
     public partial class frmProducts : Form
     {
-        IProductRepository productRepository = new ProductRepository();
+        IProductRepository productRepository;
         BindingSource source;
 
         public frmProducts()
@@ -28,7 +28,6 @@ namespace SalesWinApp
             comboBox1.DataSource = options;
             comboBox1.SelectedIndex = 0;
         }
-        IProductRepository productRepository;
         private void btnSearch_Click(object sender, EventArgs e)
         {
             String name = txtSearch.Text;
@@ -179,17 +178,26 @@ namespace SalesWinApp
 
         private void btnPrice_Click(object sender, EventArgs e)
         {
+            int num1, num2;
+            try
+            {
+                num1 = int.Parse(txt1.Text);
+                num2 = int.Parse(txt2.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Number out of range!");
+                return;
+            }
+
             if (comboBox1.SelectedIndex == 0)
             {
-                int num1 = int.Parse(txt1.Text);
-                int num2 = int.Parse(txt2.Text);
+                
                 dgvProductList.DataSource = productRepository.Search(x => x.UnitPrice >= num1 && x.UnitPrice <= num2).ToList();
 
             }
             else
             {
-                int num1 = int.Parse(txt1.Text);
-                int num2 = int.Parse(txt2.Text);
                 dgvProductList.DataSource = productRepository.Search(x=> x.UnitInStock>= num1 && x.UnitInStock <= num2).ToList();
             }
         }

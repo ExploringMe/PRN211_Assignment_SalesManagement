@@ -221,7 +221,7 @@ namespace SalesWinApp
           
             var orders = orderRepository.Search(x => x.OrderDate >= start.AddMinutes(-100) && x.OrderDate <= end).ToList();
             var res = from order in orders
-                      orderby order.OrderDate ascending
+                      orderby order.OrderDate descending
                       select order;
             dgvOrderList.DataSource = res.ToList();
         }
