@@ -12,9 +12,6 @@
 
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void btnClose_Click(object sender, EventArgs e) => Close();
     }
 }

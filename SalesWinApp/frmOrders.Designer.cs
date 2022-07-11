@@ -312,12 +312,14 @@
             // 
             // frmOrders
             // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 671);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
+
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.gbGeneralInfo);
             this.Controls.Add(this.gbDetailInfo);
