@@ -29,12 +29,12 @@ namespace SalesWinApp
                 }
                 else
                 {
-                    MessageBox.Show("Add new order fail. Fill in the blank information box!");
+                    throw new Exception("Add new order fail. Fill in the blank information box!");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message, "Add order");
             }
         }
 
@@ -60,15 +60,22 @@ namespace SalesWinApp
             var order = GetOrderObject();
             try
             {
-                order.OrderId = int.Parse(txtOrderID.Text);
-                orderRepository.UpdateOrder(order);
-                LoadOrderList();
-                LoadCbMemberID();
-                throw new Exception("Update order successfully");
+                if (order!=null)
+                {
+                    order.OrderId = int.Parse(txtOrderID.Text);
+                    orderRepository.UpdateOrder(order);
+                    LoadOrderList();
+                    LoadCbMemberID();
+                    MessageBox.Show("Update order successfully"); 
+                }
+                else
+                {
+                    throw new Exception("Update order fail. Select an order beside to update!");
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Update order fail. Select an order beside to update!");
+                MessageBox.Show(ex.Message, "Update order");
             }
         }
 
@@ -82,7 +89,7 @@ namespace SalesWinApp
                 btnAdd.Enabled = false;
                 btnDelete.Enabled = false;
                 btnUpdate.Enabled = false;
-                //button1.Enabled = false;
+                button1.Enabled = false;
             }
             else
             {

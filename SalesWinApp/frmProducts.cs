@@ -22,7 +22,6 @@ namespace SalesWinApp
         {
             String name = txtSearch.Text;
             dgvProductList.DataSource = productRepository.Search(x=> x.ProductName.Contains(name)).ToList();
-            //Trần Văn Trí code
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -38,36 +37,35 @@ namespace SalesWinApp
                 }
                 else
                 {
-                    MessageBox.Show("Add new product fail. Fill in the blank information box!");
+                    throw new Exception("Add new product fail. Fill in the blank information box!");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message, "Add Product");
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var product = GetProductObject();
-            product.ProductId = int.Parse(mtxtProductID.Text);
-
             try
             {
                 if (product != null)
                 {
+                    product.ProductId = int.Parse(mtxtProductID.Text);
                     productRepository.UpdateProduct(product);
                     LoadProductList();
                     MessageBox.Show("Update product successfully");
                 }
                 else
                 {
-                    MessageBox.Show("Update product fail. Select a product beside to update!");
+                    throw new Exception("Update product fail. Select a product beside to update!");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message, "Update product");
             }
         }
 
@@ -83,7 +81,7 @@ namespace SalesWinApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Delete product fail. Select a product beside to delete!");
+                throw new Exception("Delete product fail. Select a product beside to delete!");
             }
         }
 

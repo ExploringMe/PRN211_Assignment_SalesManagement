@@ -24,7 +24,7 @@ namespace SalesWinApp
                     {
                         memberRepository.InsertMember(member);
                         LoadMemberList();
-                        throw new Exception("Add member successfully");
+                        MessageBox.Show("Add member successfullyy");
                     }
                     else
                     {
@@ -48,14 +48,28 @@ namespace SalesWinApp
 
             try
             {
-                member.MemberId = int.Parse(txtMemberID.Text);
-                memberRepository.UpdateMember(member);
-                LoadMemberList();
-                MessageBox.Show("Update member successfully");
+                if (member!=null && txtGmail.Text!=null)
+                {
+                    if (memberRepository.CheckEmailDeplicate(member.Email))
+                    {
+                        member.MemberId = int.Parse(txtMemberID.Text);
+                        memberRepository.UpdateMember(member);
+                        LoadMemberList();
+                        MessageBox.Show("Update member successfully");
+                    }
+                    else
+                    {
+                        throw new Exception("Update member fail. Duplicated email!");
+                    } 
+                }
+                else
+                {
+                    throw new Exception("Update member fail. Fill in the blank information box!");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Update member fail. Select a member beside to update!");
+                MessageBox.Show(ex.Message, "Update Member");
             }
         }
 

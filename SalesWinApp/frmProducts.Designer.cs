@@ -288,13 +288,13 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(672, 25);
             this.txtSearch.TabIndex = 27;
-            this.txtSearch.Text = "you are looking for...(lacking events identifiy)";
+            this.txtSearch.Text = "you are looking for...\r\n";
             // 
             // btnPrice
             // 
             this.btnPrice.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPrice.Image = global::SalesWinApp.Properties.Resources.search;
-            this.btnPrice.Location = new System.Drawing.Point(18, 525);
+            this.btnPrice.Location = new System.Drawing.Point(12, 509);
             this.btnPrice.Name = "btnPrice";
             this.btnPrice.Size = new System.Drawing.Size(60, 25);
             this.btnPrice.TabIndex = 28;
@@ -303,24 +303,28 @@
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(247, 526);
+            this.txt1.Font = new System.Drawing.Font("SimSun-ExtB", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.txt1.Location = new System.Drawing.Point(251, 509);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(125, 27);
+            this.txt1.Size = new System.Drawing.Size(125, 24);
             this.txt1.TabIndex = 29;
+            this.txt1.Text = "Start with...";
             this.txt1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1_KeyPress);
             // 
             // txt2
             // 
-            this.txt2.Location = new System.Drawing.Point(400, 526);
+            this.txt2.Font = new System.Drawing.Font("SimSun-ExtB", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.txt2.Location = new System.Drawing.Point(382, 509);
             this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(125, 27);
+            this.txt2.Size = new System.Drawing.Size(125, 24);
             this.txt2.TabIndex = 30;
+            this.txt2.Text = "End with...";
             this.txt2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1_KeyPress);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 525);
+            this.comboBox1.Location = new System.Drawing.Point(78, 509);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(129, 28);
             this.comboBox1.TabIndex = 31;
@@ -329,14 +333,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-//Tri
-            this.ClientSize = new System.Drawing.Size(1138, 572);
+            this.ClientSize = new System.Drawing.Size(1068, 569);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txt2);
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.btnPrice);
-            this.ClientSize = new System.Drawing.Size(1068, 515);
-//Tri
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSearch);
