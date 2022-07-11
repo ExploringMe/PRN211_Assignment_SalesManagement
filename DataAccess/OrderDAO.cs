@@ -46,7 +46,26 @@ namespace DataAccess
             }
             return order;
         }
+        public IEnumerable<Order> GetOrdersByMemberID(int memberID)
+        {
+            try
+            {
+                var orders = new List<Order>();
+                foreach (var o in FStoreDB.Orders)
+                {
+                    if (memberID == o.MemberId)
+                    {
+                        orders.Add(o);
+                    }
+                }
+                return orders;
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception(ex.Message);
+            }
+        }
         public IEnumerable<Order> GetOrders()
         {
             var orders = new List<Order>();
@@ -121,18 +140,8 @@ namespace DataAccess
         }
         public void DeleteOrderByMemberID(int memberID)
         {
-
             try
             {
-                //foreach (var o in FStoreDB.Orders)
-                //{
-
-                //    if (o.MemberId == memberID)
-                //    {
-                //        DeleteOrder(o.OrderId);
-                //        FStoreDB.SaveChanges();
-                //    }
-                //}
                 var orderIDList = FStoreDB.Orders.Select(o => new
                 {
                     o.OrderId,

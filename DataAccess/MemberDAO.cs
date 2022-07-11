@@ -97,5 +97,16 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
         }
+        public bool CheckEmailDuplicate(string email)
+        {
+            foreach (var checkEmail in FStoreDB.Members)
+            {
+                if (email.Equals(checkEmail.Email))
+                {
+                    return false;
+                } 
+            }
+            return true;
+        }
     }
 }

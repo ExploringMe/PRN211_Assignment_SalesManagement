@@ -20,9 +20,16 @@ namespace SalesWinApp
             {
                 if (member != null)
                 {
-                    memberRepository.InsertMember(member);
-                    LoadMemberList(checkMember);
-                    throw new Exception("Add member successfully");
+                    if (memberRepository.CheckEmailDeplicate(member.Email))
+                    {
+                        memberRepository.InsertMember(member);
+                        LoadMemberList();
+                        throw new Exception("Add member successfully");
+                    }
+                    else
+                    {
+                        throw new Exception("Add new member fail. Duplicated Email.");
+                    }
                 }
                 else
                 {
@@ -43,7 +50,7 @@ namespace SalesWinApp
             {
                 member.MemberId = int.Parse(txtMemberID.Text);
                 memberRepository.UpdateMember(member);
-                LoadMemberList(checkMember);
+                LoadMemberList();
                 MessageBox.Show("Update member successfully");
             }
             catch (Exception ex)
@@ -59,7 +66,7 @@ namespace SalesWinApp
                 var memberID = int.Parse(txtMemberID.Text);
                 orderRepository.DeleteOrderByMemberID(memberID);
                 memberRepository.DeleteMember(memberID);
-                LoadMemberList(checkMember);
+                LoadMemberList();
                 txtMemberID.Clear();
                 MessageBox.Show("Delete member successfully");
             }
@@ -71,7 +78,7 @@ namespace SalesWinApp
 
         private void frmMembers_Load(object sender, EventArgs e)
         {
-            LoadMemberList(checkMember);
+            LoadMemberList();
             if (!checkMember.Email.Equals("admin@fstore.com"))
             {
                 btnAdd.Enabled = false;
@@ -80,6 +87,18 @@ namespace SalesWinApp
         }
 
         private void btnBack_Click(object sender, EventArgs e) => Close();
+        private void dgvMemberList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvMemberList.Rows.Count - 1)
+            {
+                txtMemberID.Text = dgvMemberList.Rows[e.RowIndex].Cells["MemberID"].Value.ToString();
+                txtGmail.Text = dgvMemberList.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+                txtCompany.Text = dgvMemberList.Rows[e.RowIndex].Cells["CompanyName"].Value.ToString();
+                txtCity.Text = dgvMemberList.Rows[e.RowIndex].Cells["City"].Value.ToString();
+                txtCountry.Text = dgvMemberList.Rows[e.RowIndex].Cells["Country"].Value.ToString();
+                txtPassword.Text = dgvMemberList.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+            }
+        }
 
         private Member GetMemberObject()
         {
@@ -106,14 +125,14 @@ namespace SalesWinApp
             return member;
         }
 
-        public void LoadMemberList(Member checkMember)
+        private void LoadMemberList()
         {
             try
             {
                 var members = new List<Member>();
                 if (checkMember.Email.Equals("admin@fstore.com"))
                 {
-                    members = (List<Member>)memberRepository.GetMembers(); 
+                    members = (List<Member>)memberRepository.GetMembers();
                 }
                 else
                 {
@@ -132,33 +151,10 @@ namespace SalesWinApp
                 dgvMemberList.Columns[4].Width = (int)(dgvMemberList.Width * 0.163);
                 dgvMemberList.Columns[5].Width = (int)(dgvMemberList.Width * 0.163);
                 dgvMemberList.Columns[6].Width = (int)(dgvMemberList.Width * 0);
-                if (members.Count() == 0)
-                {
-                    btnDelete.Enabled = false;
-                    btnUpdate.Enabled = false;
-                }
-                else
-                {
-                    btnDelete.Enabled = true;
-                    btnUpdate.Enabled = true;
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Load member list");
-            }
-        }
-
-        private void dgvMemberList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dgvMemberList.Rows.Count - 1)
-            {
-                txtMemberID.Text = dgvMemberList.Rows[e.RowIndex].Cells["MemberID"].Value.ToString();
-                txtGmail.Text = dgvMemberList.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-                txtCompany.Text = dgvMemberList.Rows[e.RowIndex].Cells["CompanyName"].Value.ToString();
-                txtCity.Text = dgvMemberList.Rows[e.RowIndex].Cells["City"].Value.ToString();
-                txtCountry.Text = dgvMemberList.Rows[e.RowIndex].Cells["Country"].Value.ToString();
-                txtPassword.Text = dgvMemberList.Rows[e.RowIndex].Cells["Password"].Value.ToString();
             }
         }
     }

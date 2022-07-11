@@ -38,6 +38,8 @@
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtGmail = new System.Windows.Forms.TextBox();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
             this.lbCity = new System.Windows.Forms.Label();
             this.lbCountry = new System.Windows.Forms.Label();
             this.lbCompany = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.gbGeneralInfo = new System.Windows.Forms.GroupBox();
             this.dgvMemberList = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
-            this.txtGmail = new System.Windows.Forms.TextBox();
-            this.txtMemberID = new System.Windows.Forms.TextBox();
             this.gbDetailInfo.SuspendLayout();
             this.gbGeneralInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
@@ -153,6 +153,21 @@
             this.txtPassword.Size = new System.Drawing.Size(286, 27);
             this.txtPassword.TabIndex = 8;
             // 
+            // txtGmail
+            // 
+            this.txtGmail.Location = new System.Drawing.Point(108, 89);
+            this.txtGmail.Name = "txtGmail";
+            this.txtGmail.Size = new System.Drawing.Size(286, 27);
+            this.txtGmail.TabIndex = 7;
+            // 
+            // txtMemberID
+            // 
+            this.txtMemberID.Location = new System.Drawing.Point(108, 38);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.ReadOnly = true;
+            this.txtMemberID.Size = new System.Drawing.Size(286, 27);
+            this.txtMemberID.TabIndex = 6;
+            // 
             // lbCity
             // 
             this.lbCity.AutoSize = true;
@@ -241,21 +256,6 @@
             this.btnBack.TabIndex = 27;
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // txtGmail
-            // 
-            this.txtGmail.Location = new System.Drawing.Point(108, 89);
-            this.txtGmail.Name = "txtGmail";
-            this.txtGmail.Size = new System.Drawing.Size(286, 27);
-            this.txtGmail.TabIndex = 7;
-            // 
-            // txtMemberID
-            // 
-            this.txtMemberID.Location = new System.Drawing.Point(108, 38);
-            this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.ReadOnly = true;
-            this.txtMemberID.Size = new System.Drawing.Size(286, 27);
-            this.txtMemberID.TabIndex = 6;
             // 
             // frmMembers
             // 

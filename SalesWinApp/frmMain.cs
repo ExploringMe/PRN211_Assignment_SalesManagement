@@ -21,12 +21,12 @@ namespace SalesWinApp
 
         private void productManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (member.Email.Equals("admin@fstore.com") && member.Password.Equals("admin@@"))
+            if (member.Email.Equals("admin@fstore.com"))
             {
                 frmProducts f = new frmProducts();
                 f.MdiParent = this;
                 f.StartPosition = FormStartPosition.CenterScreen;
-                f.Show(); 
+                f.Show();
             }
             else
             {
@@ -36,17 +36,11 @@ namespace SalesWinApp
         }
         private void orderManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (member.Email.Equals("admin@fstore.com") && member.Password.Equals("admin@@"))
-            {
-                frmOrders f = new frmOrders();
-                f.MdiParent = this;
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.Show(); 
-            }
-            else
-            {
-
-            }
+            frmOrders f = new frmOrders();
+            f.MdiParent = this;
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.checkMember = member;
+            f.Show();
         }
     }
 }
