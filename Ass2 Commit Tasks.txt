@@ -1,0 +1,15 @@
+Leader: Bùi Hoàng Hiệp(MSSV: SE150555)
+-Design base UI, connect to database, create base file for coding, add library
+-Add image+icon for UI
+-Create&Reading for order, product, member, orderDetail
+-Login&Authentication for admin and member
+-Validating input for textBox
+-Testing and bug fixed for final submitted application
+Member: 
+Trần Văn Trí
+-Product: Get statistics report sales in a period time input, sort by descending
+-Fix UI to adapt above function
+Trịnh Đức Cường
+-Search Product By Type (ProductName, UnitPrice, UnitInStock), Testing+Validating textBox input for search tool
+-Member, product, order: updating, deleting, Testing+Validating textBox input for search tool
+-Fix UI to adapt above function
