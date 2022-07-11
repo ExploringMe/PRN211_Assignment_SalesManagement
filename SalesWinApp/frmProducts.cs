@@ -1,14 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DataAccess.Repository;
 using BusinessObject;
+using DataAccess.Repository;
 
 namespace SalesWinApp
 {
@@ -20,7 +11,6 @@ namespace SalesWinApp
         public frmProducts()
         {
             InitializeComponent();
-            productRepository = new ProductRepository();
             List<String> options = new List<String>()
             {
                 "Price", "Quantity"
@@ -28,7 +18,6 @@ namespace SalesWinApp
             comboBox1.DataSource = options;
             comboBox1.SelectedIndex = 0;
         }
-        IProductRepository productRepository;
         private void btnSearch_Click(object sender, EventArgs e)
         {
             String name = txtSearch.Text;

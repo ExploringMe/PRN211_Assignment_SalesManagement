@@ -1,22 +1,11 @@
-using DataAccess.Repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BusinessObject;
+using DataAccess.Repository;
+using System.Data;
 
 namespace SalesWinApp
 {
     public partial class frmOrders : Form
     {
-//Tri
-        //IOrderRepository orderRepository;
-//Tri
         IOrderRepository orderRepository = new OrderRepository();
         IMemberRepository memberRepository = new MemberRepository();
         BindingSource source;

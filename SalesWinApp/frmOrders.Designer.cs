@@ -362,8 +362,6 @@
         private DateTimePicker dtpRequiredDate;
         private DateTimePicker dtpOrderDate;
 //Tri
-        private TextBox txtFreight;
-        private Button btnBack;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private Button button1;
