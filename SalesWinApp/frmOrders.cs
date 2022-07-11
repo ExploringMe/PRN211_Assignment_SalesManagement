@@ -64,11 +64,11 @@ namespace SalesWinApp
                 orderRepository.UpdateOrder(order);
                 LoadOrderList();
                 LoadCbMemberID();
-                MessageBox.Show("Update order successfully");
+                throw new Exception("Update order successfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Update order fail. Select an order beside to update!");
+                throw new Exception("Update order fail. Select an order beside to update!");
             }
         }
 
@@ -79,13 +79,25 @@ namespace SalesWinApp
             LoadOrderList();
             LoadCbMemberID();
         }
-
         private void btnMoreDetail_Click(object sender, EventArgs e)
         {
-            frmOrderDetail f = new frmOrderDetail();
-            f.Show();
+            try
+            {
+                if (txtOrderID.Text != null && txtOrderID.Text != "")
+                {
+                    int orderID = int.Parse(txtOrderID.Text);
+                    frmOrderDetail f = new frmOrderDetail();
+                    f.orderID = orderID;
+                    f.ShowDialog();
+                }
+                else
+                    throw new Exception("Invalid orderID");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "More Detail");
+            }
         }
-
         private Order GetOrderObject()
         {
             Order order = null;
@@ -104,7 +116,7 @@ namespace SalesWinApp
                 }
                 else
                 {
-                    MessageBox.Show("The memberID doesn't exist. Try other values in the box!");
+                    throw new Exception("The memberID doesn't exist. Try other values in the box!");
                 }
             }
             catch (Exception ex)

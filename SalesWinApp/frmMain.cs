@@ -1,4 +1,5 @@
-﻿namespace SalesWinApp
+﻿using BusinessObject;
+namespace SalesWinApp
 {
     public partial class frmMain : Form
     {
@@ -6,36 +7,46 @@
         {
             InitializeComponent();
         }
-
-        private void statisticReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Trần Văn Trí code
-        }
-
+        public Member member { get; set; }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
         private void memberManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMembers f = new frmMembers();
             f.MdiParent = this;
-            f.StartPosition = FormStartPosition.CenterScreen ;
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.checkMember = member;
             f.Show();
         }
 
         private void productManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProducts f = new frmProducts();
-            f.MdiParent = this;
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+            if (member.Email.Equals("admin@fstore.com") && member.Password.Equals("admin@@"))
+            {
+                frmProducts f = new frmProducts();
+                f.MdiParent = this;
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show(); 
+            }
+            else
+            {
+                productManagementToolStripMenuItem.Enabled = false;
+                MessageBox.Show("Your role does not support this function", "Normal user role");
+            }
         }
-
         private void orderManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmOrders f = new frmOrders();
-            f.MdiParent = this;
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+            if (member.Email.Equals("admin@fstore.com") && member.Password.Equals("admin@@"))
+            {
+                frmOrders f = new frmOrders();
+                f.MdiParent = this;
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show(); 
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -34,7 +34,6 @@
             this.memberManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statisticReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msAction.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +55,6 @@
             this.memberManagementToolStripMenuItem,
             this.productManagementToolStripMenuItem,
             this.orderManagementToolStripMenuItem,
-            this.statisticReportToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.msAction.Location = new System.Drawing.Point(0, 0);
             this.msAction.Name = "msAction";
@@ -84,13 +82,6 @@
             this.orderManagementToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.orderManagementToolStripMenuItem.Text = "Order Management";
             this.orderManagementToolStripMenuItem.Click += new System.EventHandler(this.orderManagementToolStripMenuItem_Click);
-            // 
-            // statisticReportToolStripMenuItem
-            // 
-            this.statisticReportToolStripMenuItem.Name = "statisticReportToolStripMenuItem";
-            this.statisticReportToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            this.statisticReportToolStripMenuItem.Text = "Statistic Report";
-            this.statisticReportToolStripMenuItem.Click += new System.EventHandler(this.statisticReportToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -124,7 +115,6 @@
         private Label lbTitle;
         private MenuStrip msAction;
         private ToolStripMenuItem memberManagementToolStripMenuItem;
-        private ToolStripMenuItem statisticReportToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem productManagementToolStripMenuItem;
         private ToolStripMenuItem orderManagementToolStripMenuItem;

@@ -8,11 +8,11 @@ namespace SalesWinApp
         IMemberRepository memberRepository = new MemberRepository();
         IOrderRepository orderRepository = new OrderRepository();
         BindingSource source;
+        public Member checkMember { get; set; }
         public frmMembers()
         {
             InitializeComponent();
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var member = GetMemberObject();
@@ -21,17 +21,17 @@ namespace SalesWinApp
                 if (member != null)
                 {
                     memberRepository.InsertMember(member);
-                    LoadMemberList();
-                    MessageBox.Show("Add new member successfully");
+                    LoadMemberList(checkMember);
+                    throw new Exception("Add member successfully");
                 }
                 else
                 {
-                    MessageBox.Show("Add new member fail. Fill in the blank information box!");
+                    throw new Exception("Add new member fail. Fill in the blank information box!");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message, "Add Member");
             }
         }
 
@@ -43,7 +43,7 @@ namespace SalesWinApp
             {
                 member.MemberId = int.Parse(txtMemberID.Text);
                 memberRepository.UpdateMember(member);
-                LoadMemberList();
+                LoadMemberList(checkMember);
                 MessageBox.Show("Update member successfully");
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace SalesWinApp
                 var memberID = int.Parse(txtMemberID.Text);
                 orderRepository.DeleteOrderByMemberID(memberID);
                 memberRepository.DeleteMember(memberID);
-                LoadMemberList();
+                LoadMemberList(checkMember);
                 txtMemberID.Clear();
                 MessageBox.Show("Delete member successfully");
             }
@@ -71,7 +71,12 @@ namespace SalesWinApp
 
         private void frmMembers_Load(object sender, EventArgs e)
         {
-            LoadMemberList();
+            LoadMemberList(checkMember);
+            if (!checkMember.Email.Equals("admin@fstore.com"))
+            {
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e) => Close();
@@ -81,14 +86,18 @@ namespace SalesWinApp
             Member member = null;
             try
             {
-                member = new Member
+                if (!txtGmail.Text.Equals("") || !txtPassword.Text.Equals(""))
                 {
-                    Email = txtGmail.Text,
-                    CompanyName = txtCompany.Text,
-                    City = txtCity.Text,
-                    Country = txtCountry.Text,
-                    Password = txtPassword.Text,
-                };
+                    member = new Member
+                    {
+                        Email = txtGmail.Text,
+                        CompanyName = txtCompany.Text,
+                        City = txtCity.Text,
+                        Country = txtCountry.Text,
+                        Password = txtPassword.Text,
+                    };
+                }
+                else throw new Exception("Email and Password can not be null!");
             }
             catch (Exception ex)
             {
@@ -97,11 +106,19 @@ namespace SalesWinApp
             return member;
         }
 
-        public void LoadMemberList()
+        public void LoadMemberList(Member checkMember)
         {
-            var members = memberRepository.GetMembers();
             try
             {
+                var members = new List<Member>();
+                if (checkMember.Email.Equals("admin@fstore.com"))
+                {
+                    members = (List<Member>)memberRepository.GetMembers(); 
+                }
+                else
+                {
+                    members.Add(checkMember);
+                }
                 source = new BindingSource();
                 source.DataSource = members;
 

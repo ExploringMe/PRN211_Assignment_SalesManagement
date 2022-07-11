@@ -35,6 +35,16 @@ namespace DataAccess
             }
             return member;
         }
+        public Member GetMemberByEmailPassword(string email, string password)
+        {
+            Member member = null;
+            foreach (Member m in FStoreDB.Members)
+            {
+                if (m.Email == email && m.Password ==password)
+                    member = m;
+            }
+            return member;
+        }
         public IEnumerable<Member> GetMembers()
         {
             var membersList = new List<Member>();
@@ -87,6 +97,5 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
         }
-        
     }
 }
