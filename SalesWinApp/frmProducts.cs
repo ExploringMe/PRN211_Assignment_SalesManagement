@@ -149,16 +149,6 @@ namespace SalesWinApp
                 dgvProductList.Columns[4].Width = (int)(dgvProductList.Width * 0.2);
                 dgvProductList.Columns[5].Width = (int)(dgvProductList.Width * 0.12);
                 dgvProductList.Columns[6].Width = (int)(dgvProductList.Width * 0);
-                if (products.Count() == 0)
-                {
-                    btnDelete.Enabled = false;
-                    btnUpdate.Enabled = false;
-                }
-                else
-                {
-                    btnDelete.Enabled = true;
-                    btnUpdate.Enabled = true;
-                }
             }
             catch (Exception ex)
             {

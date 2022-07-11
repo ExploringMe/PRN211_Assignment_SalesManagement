@@ -9,10 +9,10 @@ namespace SalesWinApp
         IOrderRepository orderRepository = new OrderRepository();
         IMemberRepository memberRepository = new MemberRepository();
         BindingSource source;
+        public Member checkMember { get; set; }
         public frmOrders()
         {
             InitializeComponent();
-            orderRepository = new OrderRepository();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -64,11 +64,11 @@ namespace SalesWinApp
                 orderRepository.UpdateOrder(order);
                 LoadOrderList();
                 LoadCbMemberID();
-                MessageBox.Show("Update order successfully");
+                throw new Exception("Update order successfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Update order fail. Select an order beside to update!");
+                throw new Exception("Update order fail. Select an order beside to update!");
             }
         }
 
@@ -77,15 +77,37 @@ namespace SalesWinApp
         private void frmOrders_Load(object sender, EventArgs e)
         {
             LoadOrderList();
-            LoadCbMemberID();
+            if (!checkMember.Email.Equals("admin@fstore.com"))
+            {
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+                btnUpdate.Enabled = false;
+                //button1.Enabled = false;
+            }
+            else
+            {
+                LoadCbMemberID();
+            }
         }
-
         private void btnMoreDetail_Click(object sender, EventArgs e)
         {
-            frmOrderDetail f = new frmOrderDetail();
-            f.Show();
+            try
+            {
+                if (txtOrderID.Text != null && txtOrderID.Text != "")
+                {
+                    int orderID = int.Parse(txtOrderID.Text);
+                    frmOrderDetail f = new frmOrderDetail();
+                    f.orderID = orderID;
+                    f.ShowDialog();
+                }
+                else
+                    throw new Exception("Invalid orderID");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "More Detail");
+            }
         }
-
         private Order GetOrderObject()
         {
             Order order = null;
@@ -104,7 +126,7 @@ namespace SalesWinApp
                 }
                 else
                 {
-                    MessageBox.Show("The memberID doesn't exist. Try other values in the box!");
+                    throw new Exception("The memberID doesn't exist. Try other values in the box!");
                 }
             }
             catch (Exception ex)
@@ -127,9 +149,18 @@ namespace SalesWinApp
 
         private void LoadOrderList()
         {
-            var orders = orderRepository.GetOrders();
             try
             {
+                var orders = new List<Order>();
+
+                if (checkMember.Email.Equals("admin@fstore.com"))
+                {
+                    orders = (List<Order>)orderRepository.GetOrders();
+                }
+                else
+                {
+                    orders = (List<Order>)orderRepository.GetOrdersByMemberID(checkMember.MemberId);
+                }
                 source = new BindingSource();
                 source.DataSource = orders;
 
@@ -144,16 +175,6 @@ namespace SalesWinApp
                 dgvOrderList.Columns[5].Width = (int)(dgvOrderList.Width * 0.14);
                 dgvOrderList.Columns[6].Width = (int)(dgvOrderList.Width * 0);
                 dgvOrderList.Columns[7].Width = (int)(dgvOrderList.Width * 0);
-                if (orders.Count() == 0)
-                {
-                    btnDelete.Enabled = false;
-                    btnUpdate.Enabled = false;
-                }
-                else
-                {
-                    btnDelete.Enabled = true;
-                    btnUpdate.Enabled = true;
-                }
             }
             catch (Exception ex)
             {

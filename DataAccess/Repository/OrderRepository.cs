@@ -9,6 +9,7 @@ namespace DataAccess.Repository
         {
             return EntityDAO.Instance.context.Orders.Where(ex);
         }
+        public IEnumerable<Order> GetOrdersByMemberID(int memberID) => OrderDAO.Instance.GetOrdersByMemberID(memberID);
         public IEnumerable<Order> GetOrders() => OrderDAO.Instance.GetOrders();
         public Order GetOrderByID(int orderID) => OrderDAO.Instance.GetOrderByID(orderID);  
         public void InsertOrder(Order order) => OrderDAO.Instance.AddOrder(order);
